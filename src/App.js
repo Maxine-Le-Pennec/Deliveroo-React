@@ -1,24 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import axios from "axios";
+import logo from "./assets/img/logo.svg";
+import Category from "./components/Category";
+
+import Title from "./components/Title";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+library.add(faStar);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+  //mise en place des states
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  //Récupération des données via axios
+  const fetchData = async () => {
+    const response = await axios.get(
+      "https://deliveroo-api-backend.herokuapp.com/"
+    );
+
+    setData(response.data);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return isLoading ? (
+    <span>En cours de chargement...</span>
+  ) : (
+    <div>
+      <header>
+        <img src={logo} alt="deliveroo"></img>
       </header>
+
+      <section>
+        <Title
+          name={data.restaurant.name}
+          description={data.restaurant.description}
+          img={data.restaurant.picture}
+        ></Title>
+      </section>
+
+      <main>
+        {data.categories.map((elem, index) => {
+          return <Category key={index} elem={elem}></Category>;
+        })}
+      </main>
     </div>
   );
 }

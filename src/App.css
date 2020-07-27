@@ -1,38 +1,105 @@
-.App {
-  text-align: center;
+header {
+  border-bottom: 1px solid #dbdbdd;
+  font-family: "Oxygen", sans-serif;
+  display: flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.blocRestau {
+  display: flex;
+  padding: 30px 112px 30px 114px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nameDescription {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+}
+.nameDescription h1 {
+  font-size: 32px;
+}
+.nameDescription p {
+  font-size: 19px;
+  color: #bac3c3;
+  margin-right: 46px;
+}
+header img {
+  padding-left: 116px;
+  padding-top: 9px;
+  padding-bottom: 15px;
+  width: 163px;
+}
+
+main {
+  background-color: #f2f5f5;
+}
+.mainPicture {
+  height: 250px;
+  width: 380px;
+  border-radius: 10px;
+}
+
+.category {
+  display: flex;
+  /* flex-direction: column; */
+  /* margin: 130px; */
+  flex-wrap: wrap;
+}
+
+.cards {
+  width: 405px;
+  height: 160px;
+  display: flex;
+  background-color: white;
+  margin-bottom: 50px;
+  margin-right: 40px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-radius: 10px;
+  padding: 14px;
 }
 
-.App-link {
-  color: #61dafb;
+.infos {
+  width: 55%;
+  margin-right: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.infos h3 {
+  font-size: 18px;
+}
+.infos p {
+  margin-top: 0;
+  font-size: 14px;
+  color: #9da0a0;
+}
+.categoriesImg {
+  height: 133px;
+  width: 133px;
+  border-style: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.categoriesImg img {
+  height: 133px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5px;
+}
+
+.boxes {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-left: 16px;
+}
+
+.price {
+  margin-right: 10px;
+  color: #9da0a0;
+  font-size: 17px;
+}
+
+.pop {
+  color: #ff8100;
+  font-weight: bold;
 }
