@@ -47,7 +47,9 @@ function App() {
 
       <main>
         {data.categories.map((elem, index) => {
-          return <Category key={index} elem={elem}></Category>;
+          if (elem.meals.length !== 0) {
+            return <Category key={index} elem={elem}></Category>;
+          }
         })}
       </main>
     </div>
