@@ -46,11 +46,16 @@ function App() {
       </section>
 
       <main>
-        {data.categories.map((elem, index) => {
-          if (elem.meals.length !== 0) {
-            return <Category key={index} elem={elem}></Category>;
-          }
-        })}
+        <div className="leftBlock">
+          {data.categories.map((elem, index) => {
+            if (elem.meals.length !== 0) {
+              return <Category key={index} elem={elem}></Category>;
+            }
+          })}
+        </div>
+        <div className="rightBlock">
+          <div className="panier"></div>
+        </div>
       </main>
     </div>
   );

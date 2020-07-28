@@ -18,7 +18,7 @@ const Categories = ({ elem }) => {
       </div>
       {elem.picture && (
         <div className="categoriesImg">
-          <img src={elem.picture}></img>
+          <img src={elem.picture} alt="plats"></img>
         </div>
       )}
     </div>
