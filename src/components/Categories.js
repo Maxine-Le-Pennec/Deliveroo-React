@@ -1,9 +1,26 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Categories = ({ elem }) => {
+const Categories = ({ setPanier, panier, elem, setIsActive, isActive }) => {
+  // console.log(elem);
   return (
-    <div className="cards">
+    <div
+      className="cards"
+      onClick={() => {
+        //console.log(elem.id);
+        setIsActive(true);
+
+        let newTab = [...panier];
+        newTab.push({
+          id: elem.id,
+          title: elem.title,
+          price: elem.price,
+          quantité: 1,
+        });
+        // console.log(newTab);
+        setPanier(newTab);
+      }}
+    >
       <div className="infos">
         <h3>{elem.title}</h3>
         <p>{elem.description.slice(0, 60)}</p>
